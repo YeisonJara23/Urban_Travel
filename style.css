@@ -1,0 +1,255 @@
+/* ---------- VARIABLES ----------- */
+:root {
+  --primary: #ff0000;
+  --accent: #ffcc00;
+  --bg-dark: #000;
+  --bg-nav: rgba(0, 0, 0, 0.6);
+  --text-light: #fff;
+  --font-main: 'Montserrat', sans-serif;
+}
+
+/* ---------- GLOBAL ----------- */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; scroll-behavior: smooth; }
+body {
+  background: var(--bg-dark);
+  color: var(--text-light);
+  font-family: var(--font-main);
+  line-height: 1.6;
+}
+.container { max-width: 1200px; margin: auto; padding: 80px 25px; }
+
+/* ---------- BACKGROUND ----------- */
+.background {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  z-index: -1; overflow: hidden;
+  background: linear-gradient(45deg, #111, #222, #000);
+  background-size: 400% 400%;
+  animation: gradientMove 15s ease infinite;
+}
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ---------- VIDEO BACKGROUND ----------- */
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* ---------- NAVBAR ----------- */
+.navbar {
+  position: fixed; top: 0; width: 100%; z-index: 999;
+  background: var(--bg-nav); backdrop-filter: blur(6px);
+}
+.nav-content {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 25px;
+}
+.logo { width: 120px; border-radius: 8px; }
+.nav-links {
+  list-style: none; margin: 0; padding: 0; display: flex; gap: 25px;
+}
+.nav-links a {
+  color: var(--text-light); text-decoration: none; font-weight: 600;
+  transition: color .2s, text-shadow .2s;
+}
+.nav-links a:hover {
+  color: var(--accent);
+  text-shadow: 0 0 8px var(--accent);
+}
+
+/* ---------- HERO ----------- */
+#hero {
+  text-align: center;
+  padding-top: 160px;
+}
+.headline {
+  font-size: 3rem;
+  margin: 0 0 10px;
+}
+.subhead {
+  font-size: 1.25rem;
+  margin-bottom: 30px;
+}
+.btn {
+  display: inline-block;
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.3s ease;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+.btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.4);
+}
+.primary-btn {
+  background: var(--primary);
+  color: #fff;
+}
+.btn:hover { opacity: 0.9; }
+
+/* ---------- ANIMACIONES DE ENTRADA ----------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- SECTIONS ----------- */
+section > h2 {
+  color: var(--accent);
+  margin-bottom: 40px;
+  text-align: center;
+}
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+}
+.services-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 600px;
+}
+.services-list li {
+  padding: 12px 0;
+  border-bottom: 1px solid #333;
+  transition: background 0.2s;
+}
+.services-list li:hover {
+  background-color: rgba(255, 204, 0, 0.1);
+}
+
+/* ---------- ¿CÓMO FUNCIONA? ----------- */
+#como-funciona {
+  background-color: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  padding: 40px 20px;
+  margin: 40px auto;
+  max-width: 900px;
+}
+#como-funciona p {
+  text-align: center;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+#como-funciona strong {
+  color: var(--accent);
+}
+
+/* ---------- CONTACTO ----------- */
+#contacto p {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+}
+#contacto .btn {
+  display: block;
+  margin: auto;
+  max-width: fit-content;
+}
+
+/* ---------- SLIDER ----------- */
+.slider {
+  position: relative;
+  max-width: 700px;
+  margin: auto;
+}
+.slide {
+  opacity: 0;
+  transition: opacity .8s ease-in-out;
+  text-align: center;
+}
+.slide.active {
+  opacity: 1;
+}
+.slide p {
+  font-style: italic;
+}
+.slide span {
+  display: block;
+  margin-top: 10px;
+  color: var(--accent);
+}
+
+/* ---------- WHATSAPP BUTTON ----------- */
+.whatsapp {
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  z-index: 1000;
+  background: #25D366;
+  color: #fff;
+  font-size: 28px;
+  padding: 14px 17px;
+  border-radius: 50%;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(0,0,0,.3);
+  transition: transform .2s;
+}
+.whatsapp:hover { transform: scale(1.05); }
+
+/* ---------- WELCOME MESSAGE ----------- */
+.welcome-message {
+  position: fixed;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 204, 0, 0.95);
+  color: #000;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 30px;
+  box-shadow: 0 5px 18px rgba(0,0,0,0.3);
+  font-size: 1rem;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out, transform 0.8s ease;
+  z-index: 1001;
+  pointer-events: none;
+}
+.welcome-message.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(10px);
+}
+
+.img-marca {
+  max-width: 280px;
+  width: 100%;
+  display: block;
+  margin: 20px auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+/* ---------- FOOTER ----------- */
+footer {
+  text-align: center;
+  padding: 40px 25px;
+  background: #111;
+  font-size: .9rem;
+  color: #bbb;
+}
+
+/* ---------- RESPONSIVE ----------- */
+@media (max-width: 768px) {
+  .headline { font-size: 2.2rem; }
+  .nav-links { gap: 15px; flex-wrap: wrap; }
+  .nav-links li { font-size: .9rem; }
+}
