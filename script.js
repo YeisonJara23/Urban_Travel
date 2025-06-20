@@ -49,5 +49,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Mostrar primer slide y rotar cada 5 segundos
   showSlide(current);
-  setInterval(nextSlide, 5000);
+  setInterval(nextSlide, 4000);
 });
